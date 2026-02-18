@@ -248,7 +248,7 @@ main "$@"
 
 ### Simulación de Ejecución
 
-Presento a continuación la simulación técnica de la ejecución del script propuesto (`install_idempiere_on_rocky_linux.sh`), diseñada para validar la lógica de flujo, identificar puntos de decisión crítica y anticipar comportamientos del sistema en un entorno Rocky Linux 9 minimal. Esta simulación sigue el enfoque de validación incremental [[44]].
+Presento a continuación la simulación técnica de la ejecución del script propuesto (`install_idempiere_on_rocky_linux.sh`), diseñada para validar la lógica de flujo, identificar puntos de decisión crítica y anticipar comportamientos del sistema en un entorno Rocky Linux 9 minimal. Esta simulación sigue el enfoque de validación incremental.
 
 #### Parámetros de la Simulación
 
@@ -439,7 +439,7 @@ A continuación, se presentan escenarios alternativos que el script debe manejar
 [WARN] 2026-02-18 10:04:14 - SELinux en modo permissivo. Políticas aplicadas pero no enforceadas.
 [INFO] Para producción, ejecute: setenforce 1 && verificar /var/log/audit/audit.log
 ```
-*Nota*: En entornos de desarrollo UAM, este modo puede ser aceptable temporalmente [[38]].
+*Nota*: En entornos de desarrollo (DEV), este modo puede ser aceptable temporalmente.
 
 #### Métricas de Simulación
 
@@ -493,12 +493,12 @@ drwxr-xr-x. 2 idempiere idempiere 4096 Feb 18 10:06 /opt/idempiere-server
 
 1. **Prueba en entorno aislado**: Ejecutar primero en una VM con snapshot para permitir rollback ante errores no simulados.
 
-2. **Registro de auditoría**: Incorporar al script la generación de un hash SHA-256 del log de instalación para trazabilidad institucional [[29]]:
+2. **Registro de auditoría**: Incorporar al script la generación de un hash SHA-256 del log de instalación para trazabilidad institucional:
    ```bash
    sha256sum /var/log/idempiere-install.log >> /var/log/idempiere-install.sha256
    ```
 
-3. **Parametrización institucional hipotética**: Crear un archivo `idempiere.izt.conf` con variables específicas de UAM Iztapalapa:
+3. **Parametrización institucional hipotética**: Crear un archivo `idempiere.izt.conf` con variables específicas de UAM:
    ```bash
    # idempiere.inst.conf
    export ORG_NAME="Universidad Autónoma Metropolitana"
